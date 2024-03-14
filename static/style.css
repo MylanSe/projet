@@ -23,6 +23,10 @@
     color: white;
 }
 
+.connexion{
+    float: right;
+}
+
 /*style pour la connexion*/
 body {
     font-family: Arial, sans-serif;
