@@ -1,0 +1,16 @@
+<div class="navbar">
+    <div class="left-links">
+        <a class="accueil" href="index.html">Accueil</a>
+        {% if session['login'] == True %}
+            <a href="#about">Page 1</a>
+            <a href="#contact">Page 2</a>
+        {% endif %}
+    </div>
+    <div class="right-links">
+        {% if session['login'] == True %}
+            <a class="deconnexion" href="deconnexion.html">Déconnexion</a>
+        {% else %}
+            <a class="connexion" href="connexion.html">Connexion</a>
+        {% endif %}
+    </div>
+</div>

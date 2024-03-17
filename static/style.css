@@ -1,12 +1,12 @@
-/* Styles pour la navbar */
 .navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
     background-color: #333;
     overflow: hidden;
 }
 
 .navbar a {
-    float: left;
-    display: block;
     color: white;
     text-align: center;
     padding: 14px 20px;
@@ -20,11 +20,20 @@
 
 .navbar a.accueil {
     background-color: #4CAF50;
-    color: white;
 }
 
-.connexion{
-    float: right;
+.left-links,
+.right-links {
+    display: flex;
+}
+
+.left-links a {
+    margin-right: 10px;
+}
+
+.right-links .connexion {
+    margin-left: 10px;
+    background-color: #ff9900;
 }
 
 /*style pour la connexion*/

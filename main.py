@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, sqlite3
 
 app = Flask(__name__)
 app.secret_key = "cmoiwesh"
@@ -19,3 +19,8 @@ def index():
 @app.route("/connexion.html")
 def connexion():
     return render_template("connexion.html")
+
+@app.route('/deconnexion.html')
+def deconnexion():
+    session['login'] = False
+    return render_template('index.html')
