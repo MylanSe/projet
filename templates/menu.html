@@ -2,14 +2,17 @@
     <div class="left-links">
         <a class="accueil" href="index.html">Accueil</a>
         {% if session['login'] == True %}
-            <a href="#about">Page 1</a>
-            <a href="#contact">Page 2</a>
+            <a class="chat" href="chat.html">Chat</a>
+            <a class="chien" href="chien.html">Chien</a>
+            <a class="elephant" href="elephant.html">Elephant</a>
+            <a class="exotique" href="exotique.html">Animaux Exotiques</a>
         {% endif %}
     </div>
     <div class="right-links">
         {% if session['login'] == True %}
             <a class="deconnexion" href="deconnexion.html">Déconnexion</a>
         {% else %}
+            <a class="inscription" href="inscription.html">Inscription</a>
             <a class="connexion" href="connexion.html">Connexion</a>
         {% endif %}
     </div>

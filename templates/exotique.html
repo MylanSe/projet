@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaux Exotiques</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="static/config.js" type="text/javascript"></script>
+</head>
+<body>
+    {% include 'menu.html' %}
+
+    <div class="listAnimal">
+        {% for exotique in exotiques %}     
+        <div class="listAnimal-item">
+            <img src="{{ url_for('static', filename='images/animal' + exotique[0]|string + '.jpg') }}" alt="{{ exotique[2] }}">
+            <p>Nom: {{ exotique[2] }}</p>
+            <p>Espece: {{ exotique[1] }}</p>
+            <p>Naissance: {{ exotique[3].year }}</p>
+            <p>Sexe: {{ exotique[4] }}</p>
+            <p>Taille en cm: {{ exotique[5] }}</p>
+            <p>Refuge: {{ exotique[9] }}</p>
+            <p>Location: {{ exotique[10] }}</p>
+            {% if exotique[6] == 1 %}
+            <form action="/exotiqueReserver.html" method="post">
+                <input type="hidden" name="idAnimal" value="{{ exotique[0] }}">
+                <button type="submit">Réserver</button>
+            </form>
+            {% elif exotique[6] == 0 and exotique[13] == session.loginMail %}
+            <form action="/exotiqueDisponible.html" method="post">
+                <input type="hidden" name="idAnimal" value="{{ exotique[0] }}">
+                <button type="submit">Annuler Reservation</button>
+            </form>
+            {% else %}
+            <p>exotique déjà réservé</p>
+            {% endif %}
+        </div>
+        {% endfor %}        
+    </div>
+</body>
+</html>
